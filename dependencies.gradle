@@ -1,0 +1,157 @@
+ext {
+    // Android
+    androidMinSdkVersion = 21
+    androidTargetSdkVersion = 28
+    androidCompileSdkVersion = 29
+    buildToolsVersion = '28.0.3'
+    kotlin_version = '1.4.21'
+    ktx_version = '1.5.0'
+
+    //Android Core
+    constraintLayout = '2.0.4'
+    appCompat = '1.2.0'
+
+    //Retrofit
+    retrofitVersion = '2.9.0'
+    retrofitLoggerVersion = '4.9.0'
+
+    //RxJava
+    rxjava2Version = '2.2.4'
+    rxandroidVersion = '2.1.0'
+
+
+    //Lifecycle
+    lifecycleVersion = '2.0.0'
+
+    //View
+    recylerviewVersion = '1.1.0'
+    cardViewVersion = '1.0.0'
+    materialVersion = 'material:1.1.0'
+
+    //Exoplayer
+    exoPlayerVersion = '2.8.4'
+    videoCache = '2.7.1'
+
+    //Glide
+    glideVersion = '4.11.0'
+
+    //Picasso
+    picassoVersion = '2.71828'
+
+    //Matisse
+    matisse = '0.5.3-beta3'
+
+    //Hilt
+    hilt_version = '2.37'
+
+//Hilt ViewModel
+    hilt_view_models = '1.0.0-alpha03'
+
+    //lifecycle_extension
+    lifecycle_ext = '2.1.0'
+
+    //FusedLocation
+    fused_location = '17.0.0'
+
+    //fragment_extensions
+    fragment_ext = '1.3.0'
+
+    //mask
+    mask_version = '6.0.0'
+
+    //lottie
+    lottie_version = '3.6.0'
+
+    // Image Compressor
+    compressor_version = '2.1.0'
+
+    //facebook
+    facebookSDK = '11.0.0'
+    //twitter
+    twitterSdkVersion = '3.1.1'
+    //google
+    googleAuthVersion = '18.0.0'
+
+    //firebase
+    firebaseMessaging = '22.0.0'
+    firebaseCore = '19.0.0'
+    firebaseAuth = '19.3.1'
+
+    //googleads
+    googleadsVersion = "20.2.0"
+
+    //guava
+    guavaVersion = "27.0.1-android"
+
+    //hash
+    commonsCodeVersion = "1.11"
+
+    //crashlytics
+    crashlyticsVersion = "17.4.1"
+
+    //analytics
+    analyticsVersion = "18.0.3"
+
+    branchioVersion ="5.+"
+
+    appIndexingVersion = "19.0.0"
+    adsIdentifierVersion = "16+"
+    browserVersion = "1.0.0"
+
+
+    core_common_dependencies = [
+            androidMinSdkVersion    : androidMinSdkVersion,
+            androidTargetSdkVersion : androidTargetSdkVersion,
+            androidCompileSdkVersion: androidCompileSdkVersion,
+            ktx                     : "androidx.core:core-ktx:$ktx_version",
+            constraintlayout        : "androidx.constraintlayout:constraintlayout:$constraintLayout",
+            appCompat               : "androidx.appcompat:appcompat:$appCompat",
+            kotlin                  : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+            cardView                : "androidx.cardview:cardview:$cardViewVersion",
+            recylerView             : "androidx.recyclerview:recyclerview:$recylerviewVersion",
+            exoPlayer               : "com.google.android.exoplayer:exoplayer:$exoPlayerVersion",
+            videoCache              : "com.danikula:videocache:$videoCache",
+            material                : "com.google.android.material:$materialVersion",
+            glide                   : "com.github.bumptech.glide:glide:$glideVersion",
+            picasso                 : "com.squareup.picasso:picasso:$picassoVersion",
+            matisse                 : "com.zhihu.android:matisse:$matisse",
+            retrofit                : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitGsonConverter   : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            retrofitRxJavaAdapter   : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+            retrofitLogger          : "com.squareup.okhttp3:logging-interceptor:$retrofitLoggerVersion",
+            rxJava                  : "io.reactivex.rxjava2:rxjava:$rxjava2Version",
+            rxAndroid               : "io.reactivex.rxjava2:rxandroid:$rxandroidVersion",
+            recylerView             : "androidx.recyclerview:recyclerview:$recylerviewVersion",
+            hilt                    : "com.google.dagger:hilt-android:$hilt_version",
+            hilt_kapt               : "com.google.dagger:hilt-android-compiler:$hilt_version",
+            hilt_viewModel          : "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_view_models",
+            hilt_viewModel_kapt     : "androidx.hilt:hilt-compiler:$hilt_view_models",
+            lifecycle_ext           : "androidx.lifecycle:lifecycle-extensions:$lifecycle_ext",
+            fragment_ext            : "androidx.fragment:fragment-ktx:$fragment_ext",
+            mask_library            : "com.redmadrobot:input-mask-android:$mask_version",
+            lottie                  : "com.airbnb.android:lottie:$lottie_version",
+            compressor              : "id.zelory:compressor:$compressor_version",
+            fusedLocation           : "com.google.android.gms:play-services-location:$fused_location",
+            facebook                : "com.facebook.android:facebook-android-sdk:$facebookSDK",
+            twitter_core            : "com.twitter.sdk.android:twitter-core:$twitterSdkVersion",
+            twitter_ui              : "com.twitter.sdk.android:tweet-ui:$twitterSdkVersion",
+            twitter_composer        : "com.twitter.sdk.android:tweet-composer:$twitterSdkVersion",
+            firebase_messaging      : "com.google.firebase:firebase-messaging:$firebaseMessaging",
+            firebase_core           : "com.google.firebase:firebase-core:$firebaseCore",
+            firebase_auth           : "com.google.firebase:firebase-auth:$firebaseAuth",
+            google_auth             : "com.google.android.gms:play-services-auth:$googleAuthVersion",
+            google_ads              : "com.google.android.gms:play-services-ads:$googleadsVersion",
+            guava                   : "com.google.guava:guava:$guavaVersion",
+            commons_codec           : "commons-codec:commons-codec:$commonsCodeVersion",
+            crashlytics             : "com.google.firebase:firebase-crashlytics:$crashlyticsVersion",
+            analytics               : "com.google.firebase:firebase-analytics:$analyticsVersion",
+            branch_io               : "io.branch.sdk.android:library:$branchioVersion",
+            app_indexing            : "com.google.firebase:firebase-appindexing:$appIndexingVersion",
+            ads_identifier          : "com.google.android.gms:play-services-ads-identifier:$adsIdentifierVersion",
+            browser                 : "androidx.browser:browser:$browserVersion"
+
+
+    ]
+
+
+}

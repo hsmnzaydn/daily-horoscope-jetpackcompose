@@ -11,7 +11,7 @@ choose = input()
 
 
 
-basePackage = "daily_horoscope"
+basePackage = "com.hsmnzaydn.daily_horoscope"
 
 if choose == "1":
     print("Feature adı nedir?\n")

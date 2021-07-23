@@ -3,8 +3,8 @@ package com.hsmnzaydn.gunluk_burc_android.fake
 import android.app.Application
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.navigation.NavController
-import com.hsmnzaydn.gunluk_burc_android.horoscope_list.HoroscopeListViewModel
-import com.hsmnzaydn.gunluk_burc_android.splash.SplashViewModel
+import com.hsmnzaydn.gunluk_burc_android.ui.screens.horoscope_list.HoroscopeListViewModel
+import com.hsmnzaydn.gunluk_burc_android.ui.screens.splash.SplashViewModel
 import javax.inject.Inject
 
 class FakeNavController: PreviewParameterProvider<NavController> {

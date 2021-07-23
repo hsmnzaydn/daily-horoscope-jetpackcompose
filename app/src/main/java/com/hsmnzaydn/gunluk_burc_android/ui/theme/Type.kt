@@ -18,7 +18,7 @@ val Typography = Typography(
         fontFamily = FontFamily(Font(R.font.barlowbold, FontWeight.Bold))
     ),
     h1 = TextStyle(
-        color = Color.White,
+        color = Purple200,
         fontSize = 24.sp,
         fontWeight = FontWeight.Bold,
         fontFamily = FontFamily(Font(R.font.barlowbold, FontWeight.Bold))

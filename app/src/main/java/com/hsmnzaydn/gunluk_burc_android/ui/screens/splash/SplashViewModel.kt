@@ -1,4 +1,4 @@
-package com.hsmnzaydn.gunluk_burc_android.splash
+package com.hsmnzaydn.gunluk_burc_android.ui.screens.splash
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

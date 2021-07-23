@@ -1,31 +1,33 @@
-package com.hsmnzaydn.gunluk_burc_android.widgets
+package com.hsmnzaydn.gunluk_burc_android.ui.widgets
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
-import com.hsmnzaydn.gunluk_burc_android.horoscope.data.entities.HoroscopeResponse
 import com.hsmnzaydn.gunluk_burc_android.horoscope.domain.entities.Horoscope
 import com.hsmnzaydn.gunluk_burc_android.ui.theme.Typography
 import com.skydoves.landscapist.glide.GlideImage
 
+@ExperimentalMaterialApi
 @Composable
-fun HoroscopeWidget(item: Horoscope) {
+fun HoroscopeWidget(item: Horoscope,click:() -> Unit) {
     Card(
         modifier = Modifier
             .height(150.dp)
             .width(150.dp)
-            .padding(8.dp)
+            .padding(8.dp), onClick = {
+            click()
+        }
     ) {
         ConstraintLayout {
 
-            val (image,text) = createRefs()
+            val (image, text) = createRefs()
 
             GlideImage(
                 imageModel = item.imagePath,
@@ -42,7 +44,8 @@ fun HoroscopeWidget(item: Horoscope) {
                     .fillMaxHeight()
                     .fillMaxWidth()
             )
-            Text(text = item.title,
+            Text(
+                text = item.title,
                 Modifier
                     .constrainAs(text) {
                         top.linkTo(parent.top)
@@ -62,15 +65,4 @@ fun HoroscopeWidget(item: Horoscope) {
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun previewHoroscopeListView() {
-    HoroscopeWidget(
-        item = Horoscope(
-            "https://icdn.gunlukburc.net/3/19/4/20/2400/boga-burcu.jpg",
-            "Koç burcuburcuburcuburcuburcuburcu",
-            "Koç burcu",
-            emptyList()
-        )
-    )
-}
+

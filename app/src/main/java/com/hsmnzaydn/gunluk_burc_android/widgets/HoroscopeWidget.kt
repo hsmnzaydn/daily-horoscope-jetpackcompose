@@ -10,12 +10,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
-import com.hsmnzaydn.gunluk_burc_android.data.HoroscopeResponse
+import com.hsmnzaydn.gunluk_burc_android.horoscope.data.entities.HoroscopeResponse
+import com.hsmnzaydn.gunluk_burc_android.horoscope.domain.entities.Horoscope
 import com.hsmnzaydn.gunluk_burc_android.ui.theme.Typography
 import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
-fun HoroscopeWidget(item: HoroscopeResponse) {
+fun HoroscopeWidget(item: Horoscope) {
     Card(
         modifier = Modifier
             .height(150.dp)
@@ -25,11 +26,10 @@ fun HoroscopeWidget(item: HoroscopeResponse) {
         ConstraintLayout {
 
             val (image,text) = createRefs()
-            item.imagePath = "https://"+item.imagePath
 
             GlideImage(
                 imageModel = item.imagePath,
-                contentDescription = item.horoscopeName,
+                contentDescription = item.title,
                 modifier =
                 Modifier
                     .constrainAs(image) {
@@ -42,7 +42,7 @@ fun HoroscopeWidget(item: HoroscopeResponse) {
                     .fillMaxHeight()
                     .fillMaxWidth()
             )
-            Text(text = item.horoscopeName,
+            Text(text = item.title,
                 Modifier
                     .constrainAs(text) {
                         top.linkTo(parent.top)
@@ -66,10 +66,11 @@ fun HoroscopeWidget(item: HoroscopeResponse) {
 @Composable
 fun previewHoroscopeListView() {
     HoroscopeWidget(
-        item = HoroscopeResponse(
-            "",
+        item = Horoscope(
+            "https://icdn.gunlukburc.net/3/19/4/20/2400/boga-burcu.jpg",
             "Koç burcuburcuburcuburcuburcuburcu",
-            "https://icdn.gunlukburc.net/3/19/4/20/2400/boga-burcu.jpg"
+            "Koç burcu",
+            emptyList()
         )
     )
 }

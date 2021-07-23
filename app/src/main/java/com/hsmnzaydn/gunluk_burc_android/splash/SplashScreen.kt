@@ -10,25 +10,21 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.hsmnzaydn.gunluk_burc_android.R
-import com.hsmnzaydn.gunluk_burc_android.fake.FakeNavController
-import com.hsmnzaydn.gunluk_burc_android.fake.FakeSplashViewModel
-import com.hsmnzaydn.gunluk_burc_android.fake.PreviewParameterCombiner
 import com.hsmnzaydn.gunluk_burc_android.ui.theme.Purple200
 import com.hsmnzaydn.gunluk_burc_android.ui.theme.Typography
 import com.hsmnzaydn.gunluk_burc_android.util.Navigation
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
-@Preview
 @Composable
 fun SplashScreen(
-    @PreviewParameter(NavControllerAndSplashViewModelProvider::class)
-    controllerAndViewModel: Pair<NavController, SplashViewModel>
-
+    navController: NavController,
+    splashViewModel: SplashViewModel
 ) {
     Column(
         modifier = Modifier
@@ -46,8 +42,8 @@ fun SplashScreen(
         )
         GlobalScope.launch(Dispatchers.Main) {
             delay(3000L)
-            controllerAndViewModel.first.popBackStack()
-            controllerAndViewModel.first.navigate(Navigation.HOROSCOPE_LIST_SCREEN.name)
+            navController.popBackStack()
+            navController.navigate(Navigation.HOROSCOPE_LIST_SCREEN.name)
 
         }
 
@@ -55,9 +51,5 @@ fun SplashScreen(
 
 }
 
-class NavControllerAndSplashViewModelProvider :
-    PreviewParameterCombiner<NavController, SplashViewModel>(
-        FakeNavController(),
-        FakeSplashViewModel()
-    )
+
 

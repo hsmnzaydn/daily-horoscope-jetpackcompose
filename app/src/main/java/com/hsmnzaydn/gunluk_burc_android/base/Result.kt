@@ -1,4 +1,4 @@
-package com.hsmnzaydn.gunluk_burc_android.data
+package com.hsmnzaydn.gunluk_burc_android.base
 
 data class Result<out T>(val status: Status, val data: T?, val error: Error?, val message: String?) {
 

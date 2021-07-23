@@ -25,6 +25,12 @@ class FakeHoroscopeListViewModel @Inject constructor(horoscopeListViewModel: Hor
 
 }
 
+class NavControllerAndSplashViewModelProvider :
+    PreviewParameterCombiner<NavController, SplashViewModel>(
+        FakeNavController(),
+        FakeSplashViewModel()
+    )
+
 open class PreviewParameterCombiner<T, U>(
     private val first: PreviewParameterProvider<T>,
     private val second: PreviewParameterProvider<U>,

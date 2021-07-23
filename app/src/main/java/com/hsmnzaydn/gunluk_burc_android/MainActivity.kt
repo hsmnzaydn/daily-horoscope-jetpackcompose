@@ -55,12 +55,12 @@ class MainActivity : ComponentActivity() {
                     startDestination = Navigation.SPLASH_SCREEN.name
                 ) {
                     composable(Navigation.SPLASH_SCREEN.name) {
-                        SplashScreen(Pair(navController, hiltViewModel()))
+                        SplashScreen(navController, hiltViewModel())
 
                     }
                     composable(
                         Navigation.HOROSCOPE_LIST_SCREEN.name){
-                        HoroscopeListScreen( hiltViewModel<HoroscopeListViewModel>())
+                        HoroscopeListScreen( navController,hiltViewModel<HoroscopeListViewModel>())
 
                     }
 

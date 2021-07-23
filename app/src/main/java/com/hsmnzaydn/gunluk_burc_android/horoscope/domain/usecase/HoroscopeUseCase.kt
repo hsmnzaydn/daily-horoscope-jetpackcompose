@@ -13,11 +13,25 @@ import javax.inject.Inject
 
 class HoroscopeUseCase @Inject constructor(private val horoscopeRepository: HoroscopeRepository){
 
-    suspend fun fetHoroscopes(): Flow<List<Horoscope>?> {
+    suspend fun fetHoroscopes(): Flow<Result<List<Horoscope>>> {
         return flow {
-            emit(horoscopeRepository.getHoroscopes().data?.map {
-                it.toHoroscope()
-            })
+            emit(Result.loading())
+            var result = horoscopeRepository.getHoroscopes()
+                emit(Result.success(result.data?.map {
+                    it.toHoroscope()
+                }))
         }.flowOn(Dispatchers.IO)
+    }
+
+
+
+    fun getDescriptionDetail(
+        id: String
+    ): Flow<Result<Horoscope>> {
+        return flow {
+            emit(Result.loading())
+            emit(Result.success(horoscopeRepository.getHoroscopeDetail(id).data?.toHoroscope()))
+        }.flowOn(Dispatchers.IO)
+
     }
 }

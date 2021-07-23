@@ -1,4 +1,4 @@
-package com.hsmnzaydn.gunluk_burc_android.ui.screens.horoscope_list
+package com.hsmnzaydn.gunluk_burc_android.ui.screens.horoscope_detail
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -14,21 +14,16 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class HoroscopeListViewModel @Inject constructor(private val horoscopeUseCase: HoroscopeUseCase) :
+class HoroscopeDetailViewModel @Inject constructor(private val horoscopeUseCase: HoroscopeUseCase) :
     ViewModel() {
 
-    val horocopeList: MutableState<Result<List<Horoscope>>> = mutableStateOf(Result.loading())
+    val horoscope: MutableState<Result<Horoscope>> = mutableStateOf(Result.loading())
 
-
-    init {
-        fetchHoroscopes()
-    }
-
-    fun fetchHoroscopes() {
+    fun fetchHoroscope( horoscopeId:String) {
         viewModelScope.launch {
-            horoscopeUseCase.fetHoroscopes().collect {
+            horoscopeUseCase.getDescriptionDetail(horoscopeId).collect {
                 it?.let {
-                    horocopeList.value = it
+                    horoscope?.value = it
                 }
             }
         }

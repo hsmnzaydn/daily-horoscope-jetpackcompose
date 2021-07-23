@@ -16,10 +16,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.hsmnzaydn.gunluk_burc_android.R
+import com.hsmnzaydn.gunluk_burc_android.base.Result
 import com.hsmnzaydn.gunluk_burc_android.base.SimpleCircularProgressIndicator
 import com.hsmnzaydn.gunluk_burc_android.horoscope.domain.entities.Horoscope
 import com.hsmnzaydn.gunluk_burc_android.ui.theme.Purple200
 import com.hsmnzaydn.gunluk_burc_android.ui.widgets.HoroscopeWidget
+import com.hsmnzaydn.gunluk_burc_android.util.Navigation
 
 @ExperimentalMaterialApi
 @Composable
@@ -28,6 +30,9 @@ fun HoroscopeListScreen(
     viewModel: HoroscopeListViewModel
 ) {
     Column(
+        Modifier
+            .fillMaxWidth()
+            .fillMaxHeight(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
@@ -40,11 +45,15 @@ fun HoroscopeListScreen(
                 .height(150.dp)
                 .padding(top = 32.dp)
         )
-        if (viewModel.horocopeList.value.size < 0) {
-            SimpleCircularProgressIndicator()
-        } else {
-            HoroscopeList(viewModel.horocopeList.value)
+        when (viewModel.horocopeList?.value?.status) {
+            Result.Status.LOADING -> {
+                SimpleCircularProgressIndicator()
+            }
+            Result.Status.SUCCESS -> {
+                viewModel.horocopeList.value.data?.let { HoroscopeList(navigation, it) }
+            }
         }
+
 
     }
 }
@@ -52,11 +61,11 @@ fun HoroscopeListScreen(
 @ExperimentalMaterialApi
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun HoroscopeList(horoscopeList: List<Horoscope>) {
+fun HoroscopeList(navigation: NavController, horoscopeList: List<Horoscope>) {
     LazyVerticalGrid(cells = GridCells.Fixed(3), modifier = Modifier.padding(top = 16.dp)) {
         items(horoscopeList) { item ->
             HoroscopeWidget(item = item, click = {
-
+                navigation.navigate("${Navigation.HOROSCOPE_DETAIL_SCREEN.name}/${item.id}")
             })
         }
     }

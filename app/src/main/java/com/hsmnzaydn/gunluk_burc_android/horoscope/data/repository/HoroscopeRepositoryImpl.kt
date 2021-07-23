@@ -16,5 +16,11 @@ class HoroscopeRepositoryImpl(private val retrofit: Retrofit) : BaseService(), H
             request = { getHoroscopeServices().getHoroscopes(1626739504000) })
     }
 
+    override suspend fun getHoroscopeDetail(id: String): Result<HoroscopeResponse> {
+        return getResponse (
+            request = {getHoroscopeServices().getHoroscopeDetail(id)}
+        )
+    }
+
 
 }

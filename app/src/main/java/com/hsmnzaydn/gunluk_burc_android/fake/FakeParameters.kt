@@ -3,6 +3,8 @@ package com.hsmnzaydn.gunluk_burc_android.fake
 import android.app.Application
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.navigation.NavController
+import com.hsmnzaydn.gunluk_burc_android.horoscope.domain.entities.Description
+import com.hsmnzaydn.gunluk_burc_android.horoscope.domain.entities.Horoscope
 import com.hsmnzaydn.gunluk_burc_android.ui.screens.horoscope_list.HoroscopeListViewModel
 import com.hsmnzaydn.gunluk_burc_android.ui.screens.splash.SplashViewModel
 import javax.inject.Inject
@@ -30,6 +32,12 @@ class NavControllerAndSplashViewModelProvider :
         FakeNavController(),
         FakeSplashViewModel()
     )
+
+class FakeHoroscope() : PreviewParameterProvider<Horoscope>{
+    override val values = sequenceOf(Horoscope("icdn.gunlukburc.net/3/19/4/20/2403/akrep-burcu.jpg","","Koç burcu günlük yorumu Genel Durum",
+        listOf(Description("Günlük şu kadar","ashdjkgsadjkasjkl"))))
+    override val count: Int = values.count()
+}
 
 open class PreviewParameterCombiner<T, U>(
     private val first: PreviewParameterProvider<T>,

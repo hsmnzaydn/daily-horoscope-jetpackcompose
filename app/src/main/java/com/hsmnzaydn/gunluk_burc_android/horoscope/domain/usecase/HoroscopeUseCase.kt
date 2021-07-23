@@ -15,7 +15,6 @@ class HoroscopeUseCase @Inject constructor(private val horoscopeRepository: Horo
 
     suspend fun fetHoroscopes(): Flow<Result<List<Horoscope>>> {
         return flow {
-            emit(Result.loading())
             var result = horoscopeRepository.getHoroscopes()
                 emit(Result.success(result.data?.map {
                     it.toHoroscope()
@@ -29,7 +28,6 @@ class HoroscopeUseCase @Inject constructor(private val horoscopeRepository: Horo
         id: String
     ): Flow<Result<Horoscope>> {
         return flow {
-            emit(Result.loading())
             emit(Result.success(horoscopeRepository.getHoroscopeDetail(id).data?.toHoroscope()))
         }.flowOn(Dispatchers.IO)
 

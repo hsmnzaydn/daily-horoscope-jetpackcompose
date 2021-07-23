@@ -8,7 +8,7 @@ apply plugin: "kotlin-kapt"
 
 apply plugin: 'dagger.hilt.android.plugin'
 
-apply from: '../dependencies.gradle'
+
 android {
     compileSdk 31
     buildToolsVersion "31.0.0"
@@ -69,16 +69,16 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1-native-mt'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1-native-mt'
 
-    implementation core_common_dependencies.hilt
-    kapt core_common_dependencies.hilt_kapt
-    implementation core_common_dependencies.hilt_viewModel
-    implementation core_common_dependencies.hilt_viewModel_kapt
+    implementation "com.google.dagger:hilt-android:2.37"
+    kapt "com.google.dagger:hilt-android-compiler:2.37"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
+    kapt "androidx.hilt:hilt-compiler:1.0.0-alpha03"
     implementation "androidx.navigation:navigation-compose:2.4.0-alpha01"
     implementation 'androidx.hilt:hilt-navigation-compose:1.0.0-alpha02'
     implementation 'androidx.compose.runtime:runtime-livedata:1.0.0-rc02'
     implementation "com.github.skydoves:landscapist-glide:1.2.8"
     implementation "androidx.constraintlayout:constraintlayout-compose:1.0.0-alpha08"
-    implementation core_common_dependencies.retrofitLogger
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
 
 
 }

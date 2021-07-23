@@ -22,6 +22,12 @@ val Typography = Typography(
         fontSize = 24.sp,
         fontWeight = FontWeight.Bold,
         fontFamily = FontFamily(Font(R.font.barlowbold, FontWeight.Bold))
+    ),
+    body2 = TextStyle(
+        color = Purple200,
+        fontSize = 12.sp,
+        fontWeight = FontWeight.Thin,
+        fontFamily = FontFamily(Font(R.font.barlowbold, FontWeight.Thin))
     )
     /* Other default text styles to override
     button = TextStyle(

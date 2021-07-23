@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">gunluk-burc-android</string>
+    <string name="app_name">Günlük Burç</string>
     <string name="title_activity_horoscope_list">HoroscopeListActivity</string>
 </resources>

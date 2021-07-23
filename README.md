@@ -2,7 +2,7 @@
 
 <h1 align="center">Daily Horoscope</h1>
 <p align="center">
-A daily horoscopes listing. App using my personality project's API and Jetpack Compose.
+A daily horoscopes listing. App using my personality project's API and Jetpack Compose. Application architecture based on MVVM and Clean Architecture
 
 </p>
 
@@ -17,6 +17,7 @@ A daily horoscopes listing. App using my personality project's API and Jetpack C
 ## Technologies
 
 - [Kotlin](https://kotlinlang.org/) - %100 Kotlin
+-  [Python](https://www.python.org/) - for create features. For [Script](https://github.com/hsmnzaydn/android-clean-feature-creator)
 - [Jetpack Compose](https://developer.android.com/jetpack/compose) for Declarative UI
 - [Glide](https://google.github.io/accompanist/glide/) for image loading
 - [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) for asynchronous operations

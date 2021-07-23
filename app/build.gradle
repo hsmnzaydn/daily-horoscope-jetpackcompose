@@ -14,7 +14,7 @@ android {
     buildToolsVersion "31.0.0"
 
     defaultConfig {
-        applicationId "com.hsmnzaydn.gunluk_burc_android"
+        applicationId "com.hsmnzaydn.daily_horoscope"
         minSdk 21
         targetSdk 31
         versionCode 1

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hsmnzaydn.gunluk_burc_android">
+    package="com.hsmnzaydn.daily_horoscope">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".GunlukBurcApp"
+        android:name="com.hsmnzaydn.daily_horoscope.GunlukBurcApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,13 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gunlukburcandroid"
         android:usesCleartextTraffic="true">
+
         <activity
-            android:name=".HoroscopeListActivity"
-            android:exported="true"
-            android:label="@string/title_activity_horoscope_list"
-            android:theme="@style/Theme.Gunlukburcandroid.NoActionBar" />
-        <activity
-            android:name=".MainActivity"
+            android:name="com.hsmnzaydn.daily_horoscope.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Gunlukburcandroid.NoActionBar">
